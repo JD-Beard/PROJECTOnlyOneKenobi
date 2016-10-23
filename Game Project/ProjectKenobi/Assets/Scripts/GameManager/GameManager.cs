@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour {
 	static int ItemPickPoints = 0; // static points for pick up.
 	public Text itemText; // text var
 	public Text livesText; // text var
-	public GameObject spawnPlayer;
+	//public GameObject spawnPlayer;
 
 	// Use this for initialization
 	void Start () {

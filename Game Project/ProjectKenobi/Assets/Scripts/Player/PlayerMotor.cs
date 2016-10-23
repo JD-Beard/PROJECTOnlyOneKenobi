@@ -11,14 +11,14 @@ public class PlayerMotor : MonoBehaviour {
 
 
 	private Rigidbody2D myRB2D;
-	private GameManager gameManager;
+	//private GameManager gameManager;
 
 
 	// Use this for initialization
 	void Start () {
 
 		myRB2D = GetComponent<Rigidbody2D> (); //Getting the Rigidbody2D.
-		gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+		//gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 	
 	}
 	
