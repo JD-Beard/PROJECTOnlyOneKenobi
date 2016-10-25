@@ -4,13 +4,13 @@ using System.Collections;
 public class CameraMotor : MonoBehaviour {
 
 
-	private PlayerMotor thePlayer; //  the Player
+	private Scroller thePlayer; //  the Player
 	private Vector3 lastPlayerPosition; // the lastPosition of the Player.
 	private float distanceToMove; //  the distance you want the camera to move.
 	// Use this for initialization
 	void Start () {
 
-		thePlayer = FindObjectOfType<PlayerMotor> (); // Find the PlayerScript.
+		thePlayer = FindObjectOfType<Scroller> (); // Find the PlayerScript.
 	
 	}
 	
