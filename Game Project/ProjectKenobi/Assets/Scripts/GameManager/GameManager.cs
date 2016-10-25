@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		itemText.text = "ITEMPICKUP: " + ItemPickPoints; // set the beginning score.
+		itemText.text = "MIDICHLORIANS: " + ItemPickPoints; // set the beginning score.
 		livesText.text = "Lives: " + PlayerLives; // set the player lives.
 
 	
@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour {
 	public void AddItemPoints(int pointsToAdd){ // function for the points to add.
 
 		ItemPickPoints = ItemPickPoints + pointsToAdd;
-		itemText.text = "ITEMPICKUP: " + ItemPickPoints;
+		itemText.text = "MIDICHLORIANS: " + ItemPickPoints;
 
 
 	}
