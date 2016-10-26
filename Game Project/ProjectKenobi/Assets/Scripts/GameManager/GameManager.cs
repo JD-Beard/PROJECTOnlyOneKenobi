@@ -5,18 +5,23 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
-	 int PlayerLives = 3; // static of player lives.
+	int PlayerLives = 3; // static of player lives.
 	static int ItemPickPoints = 0; // static points for pick up.
 	public Text itemText; // text var
 	public Text livesText; // text var
 	public GameObject spawnPlayer;
 	public Transform spawnPoint;
 
+	private SpeedController SC;
+
+
+
 	// Use this for initialization
 	void Start () {
 
 		itemText.text = "MIDICHLORIANS: " + ItemPickPoints; // set the beginning score.
 		livesText.text = "Lives: " + PlayerLives; // set the player lives.
+		SC =GameObject.Find ("SpeedManager").GetComponent<SpeedController> ();
 
 	
 	}
@@ -65,13 +70,21 @@ public void SpawnThePlayer(){ /// waiting to fix this bug before we go on any fa
 			
 			StartCoroutine (BeginSpawning ());
 
+
+
 		}
 	}
 
 	IEnumerator BeginSpawning(){
 
 		yield return new WaitForSeconds (2);
-		Instantiate (spawnPlayer, spawnPoint.position, spawnPoint.rotation);
+		GameObject temp = Instantiate (spawnPlayer, spawnPoint.position, spawnPoint.rotation) as GameObject;
+		temp.GetComponent<PlayerMotor> ().SetSpeed (SC.difficultyLevel);
+
+
+
+
+	
 
 
 	}
@@ -87,7 +100,7 @@ public void SpawnThePlayer(){ /// waiting to fix this bug before we go on any fa
 
 		yield return new WaitForSeconds (2);
 		//SceneManager.LoadScene ("Winner");
-		Debug.Log("You Won the game");
+		//Debug.Log("You Won the game");
 
 
 
@@ -108,7 +121,7 @@ public void SpawnThePlayer(){ /// waiting to fix this bug before we go on any fa
 
 		yield return new WaitForSeconds (2);
 		//SceneManager.LoadScene ("GameOver");
-		Debug.Log("GameOver");
+		//Debug.Log("GameOver");
 
 
 

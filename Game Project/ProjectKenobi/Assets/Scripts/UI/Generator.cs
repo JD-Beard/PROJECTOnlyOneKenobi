@@ -22,4 +22,12 @@ public class Generator : MonoBehaviour {
 
 	
 	}
+
+
+	public void SetSpeed(float modifier){
+
+		moveSpeed = 0.3f + modifier/2;
+
+
+	}
 }

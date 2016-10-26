@@ -6,7 +6,8 @@ public class PlayerMotor : MonoBehaviour {
 
 	private  float speed = 0f;
 	private float idleSpeed = 0f;
-	public float moveSpeed = 6f; //Player Speed.
+	private float moveSpeed = 6f; 
+	public float playerSpeed = 8f; // player Speed;
 	public int Lives = 3; //Players totals lives.
 
 
@@ -19,7 +20,10 @@ public class PlayerMotor : MonoBehaviour {
 
 		myRB2D = GetComponent<Rigidbody2D> (); //Getting the Rigidbody2D.
 		gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+
 	
+
+
 	}
 	
 	// Update is called once per frame
@@ -59,6 +63,10 @@ public class PlayerMotor : MonoBehaviour {
 		
 			speed = idleSpeed;
 		}
+
+
+
+
 	
 	}
 
@@ -66,11 +74,24 @@ public class PlayerMotor : MonoBehaviour {
 
 
 	void Movement(Vector3 dir){ // Player Movement.
-		speed = moveSpeed;
+		speed = playerSpeed;
 		transform.position += dir.normalized * speed * Time.deltaTime;
 	
 	}
 
+	public void SetSpeed(float modifier){ // while you alive
+
+		playerSpeed = 8.0f + modifier+1;
+
+
+
+	}
+
+
+
+
+
+  
 
 
 
@@ -83,7 +104,7 @@ public class PlayerMotor : MonoBehaviour {
 			Destroy (gameObject);
 			gameManager.TakeLives (1);
 			gameManager.SpawnThePlayer ();
-			// waiting to fix a bug when this happen.
+
 
 
 		}
