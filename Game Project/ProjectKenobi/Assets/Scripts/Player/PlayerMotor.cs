@@ -25,8 +25,20 @@ public class PlayerMotor : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+
+
 		myRB2D.velocity = new Vector2 (moveSpeed, myRB2D.velocity.y); // The force to keep the player moving forward.
 
+		 if (Input.GetKey(KeyCode.LeftArrow) ||  Input.GetKey(KeyCode.A)){
+		  Movement(Vector3.left);
+		
+		}
+		 
+		if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)){
+
+		  Movement(Vector3.right);
+		
+		}
 
 	
 

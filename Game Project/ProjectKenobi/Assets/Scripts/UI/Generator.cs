@@ -6,6 +6,7 @@ public class Generator : MonoBehaviour {
 
 	public float moveSpeed = 0.5f; //  speed for the scrolling
 	private Renderer SR; // get the renderer
+
 	// Use this for initialization
 	void Start () {
 		SR = GetComponent<Renderer> (); // component.
