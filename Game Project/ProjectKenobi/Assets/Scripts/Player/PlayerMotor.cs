@@ -9,6 +9,7 @@ public class PlayerMotor : MonoBehaviour {
 	private float moveSpeed = 6f; 
 	public float playerSpeed = 8f; // player Speed;
 	public int Lives = 3; //Players totals lives.
+	private Animator playerAnim;
 
 
 	private Rigidbody2D myRB2D;
@@ -20,6 +21,7 @@ public class PlayerMotor : MonoBehaviour {
 
 		myRB2D = GetComponent<Rigidbody2D> (); //Getting the Rigidbody2D.
 		gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+		playerAnim = GetComponent<Animator> ();
 
 	
 
@@ -87,6 +89,14 @@ public class PlayerMotor : MonoBehaviour {
 
 	}
 
+	IEnumerator Death(){
+
+		yield return new WaitForSeconds (1);
+
+		Destroy (gameObject);
+		gameManager.SpawnThePlayer ();
+	}
+
 
 
 
@@ -100,10 +110,10 @@ public class PlayerMotor : MonoBehaviour {
 
 		if (other.collider.gameObject.tag == "EnemyObject") {
 
-
-			Destroy (gameObject);
+			playerAnim.SetBool ("Death", true);
+			StartCoroutine (Death ());
 			gameManager.TakeLives (1);
-			gameManager.SpawnThePlayer ();
+		
 
 
 
