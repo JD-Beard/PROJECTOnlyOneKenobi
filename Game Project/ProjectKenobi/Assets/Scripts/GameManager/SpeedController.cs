@@ -45,17 +45,17 @@ public class SpeedController : MonoBehaviour {
 
 
 	}
+}
 
 
+public	class void SpeedUP(){
 
-public	void SpeedUP(){
-
-		//Debug.Log ("LevelUP" + difficultyLevel);
-
+		Debug.Log ("LevelUP" + difficultyLevel);
+	
 		if (difficultyLevel == maxDiffiucltyLevel)
 			return;
 
-		scoreToNextLevel *= 2;
+	scoreToNextLevel *= 2;
 		difficultyLevel++;
 
 		playerMovement.SetSpeed(difficultyLevel);
@@ -64,4 +64,6 @@ public	void SpeedUP(){
 
 
 	}
+}
+}
 }

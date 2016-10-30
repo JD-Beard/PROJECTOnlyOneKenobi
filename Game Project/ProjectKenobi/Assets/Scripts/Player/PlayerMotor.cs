@@ -33,7 +33,7 @@ public class PlayerMotor : MonoBehaviour {
 
 
 
-		myRB2D.velocity = new Vector2 (moveSpeed, myRB2D.velocity.y); // The force to keep the player moving forward.
+		//myRB2D.velocity = new Vector2 (moveSpeed, myRB2D.velocity.y); // The force to keep the player moving forward.
 
 		 if (Input.GetKey(KeyCode.LeftArrow) ||  Input.GetKey(KeyCode.A)){
 		  Movement(Vector3.left);
@@ -91,7 +91,7 @@ public class PlayerMotor : MonoBehaviour {
 
 	IEnumerator Death(){
 
-		yield return new WaitForSeconds (1);
+		yield return new WaitForSeconds (2);
 
 		Destroy (gameObject);
 		gameManager.SpawnThePlayer ();
