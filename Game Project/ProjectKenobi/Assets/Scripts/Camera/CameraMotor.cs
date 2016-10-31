@@ -1,26 +1,32 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CameraMotor : MonoBehaviour {
+public class CameraMotor : MonoBehaviour
+{
 
 
-	private Scroller thePlayer; //  the Player
-	private Vector3 lastPlayerPosition; // the lastPosition of the Player.
-	private float distanceToMove; //  the distance you want the camera to move.
+	private Scroller thePlayer;
+	//  the Player
+	private Vector3 lastPlayerPosition;
+	// the lastPosition of the Player.
+	private float distanceToMove;
+	//  the distance you want the camera to move.
 	// Use this for initialization
-	void Start () {
+	void Start ()
+	{
 
 		thePlayer = FindObjectOfType<Scroller> (); // Find the PlayerScript.
 	
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+	{
 
 
 		distanceToMove = thePlayer.transform.position.x - lastPlayerPosition.x; //  the distance to move.
 
-		transform.position = new Vector3 (transform.position.x + distanceToMove,transform.position.y, transform.position.z); // move the camera to using this vector
+		transform.position = new Vector3 (transform.position.x + distanceToMove, transform.position.y, transform.position.z); // move the camera to using this vector
 
 		lastPlayerPosition = thePlayer.transform.position; // thelastposition is the players.
 	

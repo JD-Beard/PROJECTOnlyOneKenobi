@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SpeedController : MonoBehaviour {
+public class SpeedController : MonoBehaviour
+{
 
 	public int difficultyLevel = 1;
 	private int maxDiffiucltyLevel = 10;
@@ -16,7 +17,8 @@ public class SpeedController : MonoBehaviour {
 
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+	{
 
 		playerMovement = FindObjectOfType<PlayerMotor> ();
 		fieldSpeed = FindObjectOfType<Generator> ();
@@ -25,7 +27,8 @@ public class SpeedController : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+	{
 
 	
 
@@ -45,25 +48,24 @@ public class SpeedController : MonoBehaviour {
 
 
 	}
-}
 
 
-public	class void SpeedUP(){
 
-		Debug.Log ("LevelUP" + difficultyLevel);
+	public void SpeedUP ()
+	{
+
+		//	Debug.Log ("LevelUP" + difficultyLevel);
 	
 		if (difficultyLevel == maxDiffiucltyLevel)
 			return;
 
-	scoreToNextLevel *= 2;
+		scoreToNextLevel *= 2;
 		difficultyLevel++;
 
-		playerMovement.SetSpeed(difficultyLevel);
-		fieldSpeed.SetSpeed (difficultyLevel - 2.0f);
+		playerMovement.SetSpeed (difficultyLevel);
+		fieldSpeed.SetSpeed (difficultyLevel - 1.0f);
 
 
 
 	}
-}
-}
 }

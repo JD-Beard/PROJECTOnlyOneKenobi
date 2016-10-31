@@ -1,32 +1,38 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Generator : MonoBehaviour {
+public class Generator : MonoBehaviour
+{
 
 
-	public float moveSpeed = 0.5f; //  speed for the scrolling
-	private Renderer SR; // get the renderer
+	public float moveSpeed = 0.5f;
+	//  speed for the scrolling
+	private Renderer SR;
+	// get the renderer
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+	{
 		SR = GetComponent<Renderer> (); // component.
 
 	
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+	{
 
-		Vector2 offset = new Vector2(Time.time * moveSpeed, 0); // make a offset to the scrolling
+		Vector2 offset = new Vector2 (Time.time * moveSpeed, 0); // make a offset to the scrolling
 		SR.material.mainTextureOffset = offset; // do the offset.
 
 	
 	}
 
 
-	public void SetSpeed(float modifier){
+	public void SetSpeed (float modifier)
+	{
 
-		moveSpeed = 0.3f + modifier/2;
+		moveSpeed = 0.5f + modifier / 2;
 
 
 	}
