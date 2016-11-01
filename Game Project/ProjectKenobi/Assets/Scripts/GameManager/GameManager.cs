@@ -32,7 +32,8 @@ public class GameManager : MonoBehaviour
 	void Start ()
 	{
 		ItemPickPoints = 0;
-		itemText.text = "MIDICHLORIANS: " + ItemPickPoints; // set the beginning score.
+		itemText.text =  "MIDICHLORIANS : "  + ItemPickPoints   ; // set the beginning score.
+	
 		livesText.text = "Lives: " + PlayerLives; // set the player lives.
 		SC = GameObject.Find ("SpeedManager").GetComponent<SpeedController> (); //find the object with the script.
 
