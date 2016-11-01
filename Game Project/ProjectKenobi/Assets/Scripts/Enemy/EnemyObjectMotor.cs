@@ -8,12 +8,15 @@ public class EnemyObjectMotor : MonoBehaviour
 	private Rigidbody2D myRB2D;
 	public float moveSpeed;
 	private float speed;
+	private SoundManager soundManager;
+	public Transform particles;
 	// Use this for initialization
 	void Start ()
 	{
 
 		Destroy (gameObject, 7f);
 		myRB2D = GetComponent<Rigidbody2D> ();
+		soundManager = GameObject.Find ("SoundManager").GetComponent<SoundManager> ();
 	
 	}
 	
@@ -36,6 +39,8 @@ public class EnemyObjectMotor : MonoBehaviour
 		if (other.collider.gameObject.tag == "Player") {
 
 			Destroy (gameObject);
+			Instantiate(particles,transform.position,transform.rotation);
+			soundManager.PlaySound (2);
 
 		}
 

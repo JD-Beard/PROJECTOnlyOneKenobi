@@ -25,12 +25,19 @@ public class GameManager : MonoBehaviour
 
 
 
+
+
+
+
 	void Start ()
 	{
-
+		ItemPickPoints = 0;
 		itemText.text = "MIDICHLORIANS: " + ItemPickPoints; // set the beginning score.
 		livesText.text = "Lives: " + PlayerLives; // set the player lives.
 		SC = GameObject.Find ("SpeedManager").GetComponent<SpeedController> (); //find the object with the script.
+
+	
+
 
 	
 	}
@@ -42,9 +49,13 @@ public class GameManager : MonoBehaviour
 
 		if (PlayerLives == 0) { // check if the player lives  = 0
 
-			GameOver (); // play the gameover function.
+		GameOver (); // play the gameover function.
+
 
 		}
+
+
+	
 
 
 		if (ItemPickPoints == 15) { // check if the player has pick up 15 items.
@@ -91,7 +102,7 @@ public class GameManager : MonoBehaviour
 	IEnumerator BeginSpawning ()
 	{ // used to spawn the player with a timer.
 
-		yield return new WaitForSeconds (2);
+		yield return new WaitForSeconds (1);
 		GameObject temp = Instantiate (spawnPlayer, spawnPoint.position, spawnPoint.rotation) as GameObject;
 		temp.GetComponent<PlayerMotor> ().SetSpeed (SC.difficultyLevel);
 
@@ -115,7 +126,7 @@ public class GameManager : MonoBehaviour
 	{ // used to play the scene for winning.
 
 		yield return new WaitForSeconds (2);
-		//SceneManager.LoadScene ("Winner");
+		SceneManager.LoadScene ("Winner");
 		//Debug.Log("You Won the game");
 
 
@@ -136,9 +147,9 @@ public class GameManager : MonoBehaviour
 
 	IEnumerator BeginGameover ()
 	{ // used to play the scene for gameover.
-
+		
 		yield return new WaitForSeconds (2);
-		//SceneManager.LoadScene ("GameOver");
+		SceneManager.LoadScene ("GameOver");
 		//Debug.Log("GameOver");
 
 

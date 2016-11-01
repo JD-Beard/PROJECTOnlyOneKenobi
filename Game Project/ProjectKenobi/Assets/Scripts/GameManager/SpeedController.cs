@@ -61,7 +61,6 @@ public class SpeedController : MonoBehaviour
 
 		scoreToNextLevel *= 2;
 		difficultyLevel++;
-
 		playerMovement.SetSpeed (difficultyLevel);
 		fieldSpeed.SetSpeed (difficultyLevel - 1.0f);
 

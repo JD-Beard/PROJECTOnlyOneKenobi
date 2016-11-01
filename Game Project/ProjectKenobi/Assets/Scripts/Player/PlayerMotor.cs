@@ -7,12 +7,16 @@ public class PlayerMotor : MonoBehaviour
 
 	private  float speed = 0f;
 	private float idleSpeed = 0f;
-	public float playerSpeed = 8f;
+	public float playerSpeed = 18f;
 	// player Speed;
 	public int Lives = 3;
 	//Players totals lives.
 	private Animator playerAnim;
 	private GameManager gameManager;
+	private SoundManager soundManager;
+
+
+
 
 
 	// Use this for initialization
@@ -21,7 +25,11 @@ public class PlayerMotor : MonoBehaviour
 
 	
 		gameManager = GameObject.Find ("GameManager").GetComponent<GameManager> ();
+		soundManager = GameObject.Find ("SoundManager").GetComponent<SoundManager> ();
+
+	
 		playerAnim = GetComponent<Animator> ();
+		playerSpeed = 18f;
 
 	
 
@@ -32,7 +40,7 @@ public class PlayerMotor : MonoBehaviour
 	void Update ()
 	{
 
-
+	
 
 	
 
@@ -95,7 +103,7 @@ public class PlayerMotor : MonoBehaviour
 	IEnumerator Death ()
 	{
 
-		yield return new WaitForSeconds (2);
+		yield return new WaitForSeconds (1);
 
 		Destroy (gameObject);
 		gameManager.SpawnThePlayer ();
@@ -118,6 +126,9 @@ public class PlayerMotor : MonoBehaviour
 			playerAnim.SetBool ("Death", true);
 			StartCoroutine (Death ());
 			gameManager.TakeLives (1);
+			soundManager.PlaySound (1);
+
+
 		
 
 
@@ -126,4 +137,9 @@ public class PlayerMotor : MonoBehaviour
 
 
 	}
+
+
+
+
+
 }

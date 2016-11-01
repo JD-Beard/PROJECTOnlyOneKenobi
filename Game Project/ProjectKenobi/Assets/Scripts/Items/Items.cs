@@ -5,10 +5,11 @@ public class Items : MonoBehaviour
 {
 
 	private GameManager manager;
-	// GameManager Script
 	private Rigidbody2D myRB2D;
 	public float moveSpeed;
+	public Transform particles;
 	private float speed;
+	private SoundManager sManager;
 
 
 	void Start ()
@@ -16,6 +17,7 @@ public class Items : MonoBehaviour
 
 		Destroy (gameObject, 7f); // Destroy this item after 7 secs.
 		manager = GameObject.Find ("GameManager").GetComponent<GameManager> (); //Find the Gamemanager script in the scene.
+		sManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
 		myRB2D = GetComponent<Rigidbody2D> ();
 	
 	}
@@ -35,9 +37,10 @@ public class Items : MonoBehaviour
 
 		if (other.gameObject.tag == "Player") { // if the player collider do this.
 
-
+			sManager.PlaySound (0);
 			gameObject.SetActive (false); //  turn the item off.
 			manager.AddItemPoints (1); // give the player 1 point.
+			Instantiate(particles,transform.position,transform.rotation);
 
 		}
 
